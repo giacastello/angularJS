@@ -8,6 +8,6 @@ import { Component} from '@angular/core';
    
 
 export class ProductListComponent { //makes it available to others to use
-
+    pageTitle: string = 'PRRRODOCT LEST!';
 }
 
