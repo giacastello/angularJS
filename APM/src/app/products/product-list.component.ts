@@ -9,6 +9,8 @@ import { Component} from '@angular/core';
 
 export class ProductListComponent { //makes it available to others to use
     pageTitle: string = 'PRRRODOCT LEST!';
+    imageWidth: number = 50;
+    imageMargin: number = 2;
     products: any[] = [  // We use 'any' in TS if we dont know the specific datatype
     {
         "productId": 1,
