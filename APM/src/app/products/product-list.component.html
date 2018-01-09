@@ -6,13 +6,14 @@
         <div class='row'>
             <div class='col-md-2'> Filter by: </div>
             <div class='col-md-4'>
-                <input type="text">
+                <input type="text"
+                    [(ngModel)] = 'listFilter'/> <!--We two-way-bind with ngModel this listFilter with its property in product-list.component.ts, and  -->
             </div>
         </div>
 
         <div class='row'>
             <div class='col-md-6'>
-                <h3>Filtered by: </h3>
+                <h3>Filtered by: {{listFilter}} </h3> <!-- by the imput -->
             </div>
         </div>
            <!-- We only want to display this list if it matches the search -->
@@ -24,8 +25,10 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class='btn btn-primary'>
-                                Show Image
+                            <button class='btn btn-primary' 
+                            (click)='toggleImage()'>
+                                <!-- if show image is true, display Hide, otherwise display Show --> 
+                              {{showImage ? 'Hide' : 'Show'}} Image   
                             </button>
                         </th>
                         <th> product </th>
@@ -38,7 +41,8 @@
                 <tbody>
                     <tr *ngFor = 'let product of products'>
                         <td> 
-                            <img [src]='product.imageUrl'
+                            <img *ngIf='showImage'
+                                [src]='product.imageUrl'
                                 [title] = 'product.productName'
                                 [style.width.px] = 'imageWidth'
                                 [style.margin.px] = 'imageMargin'>

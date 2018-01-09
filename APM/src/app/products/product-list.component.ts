@@ -1,16 +1,19 @@
 import { Component} from '@angular/core';
 //the component decorator makes this class a component 
 
-@Component ({
+
+@Component ({ 
     selector:'pm-products',  // in app.component.ts as html tag
     templateUrl:'./product-list.component.html' //path to HTML file
 })
-   
+    
 
 export class ProductListComponent { //makes it available to others to use
     pageTitle: string = 'PRRRODOCT LEST!';
     imageWidth: number = 50;
     imageMargin: number = 2;
+    showImage: boolean = false;
+    listFilter: string = 'cart';
     products: any[] = [  // We use 'any' in TS if we dont know the specific datatype
     {
         "productId": 1,
@@ -63,5 +66,10 @@ export class ProductListComponent { //makes it available to others to use
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     } 
 ];
+    //Method toggle image
+    toggleImage(): void { // wont have a return type
+        this.showImage = !this.showImage; 
+    }
+
 }
 
