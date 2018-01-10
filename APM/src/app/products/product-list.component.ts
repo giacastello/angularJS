@@ -1,15 +1,16 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { IProduct } from './product';
 //the component decorator makes this class a component 
 
 
 @Component ({ 
     selector:'pm-products',  // in app.component.ts as html tag
-    templateUrl:'./product-list.component.html' //path to HTML file
+    templateUrl:'./product-list.component.html', //path to HTML file
+    styleUrls: ['./product-list.component.css']
 })
     
 
-export class ProductListComponent { //makes it available to others to use
+export class ProductListComponent implements OnInit { //makes it available to others to use
     pageTitle: string = 'PRRRODOCT LEST!';
     imageWidth: number = 50;
     imageMargin: number = 2;
@@ -70,6 +71,9 @@ export class ProductListComponent { //makes it available to others to use
     //Method toggle image
     toggleImage(): void { // wont have a return type
         this.showImage = !this.showImage; 
+    }
+    ngOnInit(): void {
+        console.log('In OnInit');
     }
 
 }
