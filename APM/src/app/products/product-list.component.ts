@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { IProduct } from './product';
 //the component decorator makes this class a component 
 
 
@@ -14,7 +15,7 @@ export class ProductListComponent { //makes it available to others to use
     imageMargin: number = 2;
     showImage: boolean = false;
     listFilter: string = 'cart';
-    products: any[] = [  // We use 'any' in TS if we dont know the specific datatype
+    products: IProduct[] = [  // We use 'any' in TS if we dont know the specific datatype
     {
         "productId": 1,
         "productName": "Leaf Rake",
